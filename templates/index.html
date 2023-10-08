@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Fuel consumption prediction</title>
+      <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+   </head>
+
+   <body>
+      <div id="wrap">
+      <h1>Predict fuel consumption in mpg</h1>
+
+      <section id="furn" class="frame2">
+
+         <div class="login">
+
+            <form action="{{ url_for('make_predictions')}}"method="post">
+            <table class="entryForm">
+
+            <tr>
+            <th>DISPLACEMENT : </th>
+            <td><input type="text" name="displ" placeholder="Continuous" required="required" />
+            </tr>
+
+            <tr>
+            <th>HP：</th>
+            <td><input type="text" name="hp" placeholder="Continuous" required="required" />
+            </tr>
+
+            <tr>
+            <th>YEAR：</th>
+            <td><input type="text" name="year" placeholder="Just last digits: (80)" required="required" />
+            </tr>
+
+            <tr>
+               <th>ORIGIN：</th>
+               <td>
+               <select id="origin" name="origin">
+                  <option value="2">USA</option>
+                  <option value="1">Japan</option>
+                  <option value="0">Germany</option>
+               </select>
+               </td>
+               </tr>
+               
+            </table>
+            <div class="btns">
+            <button type="reset" class="btn btn-clear">Reset</button>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </div>
+            </form>
+
+         </div>
+
+
+      </section>
+
+
+      <br>
+      <br>
+      {{prediction_text}}
+      </div>
+
+   </body>
+</html>
